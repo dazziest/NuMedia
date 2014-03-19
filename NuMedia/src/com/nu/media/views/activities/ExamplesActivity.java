@@ -48,7 +48,7 @@ public class ExamplesActivity extends FragmentActivity {
 		aq.id(R.id.name).text(title);
 		edtCode = aq.id(R.id.code).getEditText();
 		edtCode.setText(source);
-		htmlString = edtCode.getText().toString();
+		htmlString = source;
 		aq.id(R.id.go_run).clicked(new View.OnClickListener() {
 			
 			@Override
@@ -61,6 +61,7 @@ public class ExamplesActivity extends FragmentActivity {
 			}
 
 			private void loadHtml() {
+				htmlString = edtCode.getText().toString();
 				Intent intent = new Intent(ExamplesActivity.this, WebViewActivity.class);
 				intent.putExtra("web_source", htmlString);
 				startActivity(intent);
