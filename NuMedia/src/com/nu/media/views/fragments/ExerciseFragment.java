@@ -270,7 +270,7 @@ public class ExerciseFragment extends BaseContentFragment {
 
 	private int[] getRestList() {
 		// TODO Auto-generated method stub
-		return new int[] { R.array.top_names, R.array.top_values };
+		return new int[] { R.array.image_names, R.array.image_values };
 	}
 
 //	private void mock() {
@@ -332,15 +332,15 @@ public class ExerciseFragment extends BaseContentFragment {
 		startActivity(intent);
 	}
 
-	private void syncListData() {
-		for (Article article : listData) {
-			Article saved = dataAccess.getByColumnNameValue("TITLE",
-					article.getTitle());
-			if (saved != null) {
-				article.setStatus(true);
-			}
-		}
-	}
+//	private void syncListData() {
+//		for (Article article : listData) {
+//			Article saved = dataAccess.getByColumnNameValue("TITLE",
+//					article.getTitle());
+//			if (saved != null) {
+//				article.setStatus(true);
+//			}
+//		}
+//	}
 
 	@Override
 	public void saveData() {
