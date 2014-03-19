@@ -3,9 +3,14 @@ package com.nu.media.views.activities;
 import java.util.List;
 
 import com.nu.media.R;
+import com.nu.media.helpers.DatabaseHelper;
+import com.nu.media.helpers.DatabaseManager;
 import com.nu.media.models.Article;
+import com.nu.media.models.ListArticle;
+import com.nu.media.models.dao.DataAccess;
 import com.nu.media.views.fragments.DetailFragment;
 import com.nu.media.views.fragments.DetailFragment.PageChangeListener;
+import com.nu.media.views.fragments.ViewArticleFragment.FavoriteListener;
 import com.nu.media.views.fragments.DetailMenuFragment;
 import com.nu.media.views.listeners.SelectedArticleListener;
 
@@ -17,7 +22,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class DetailActivity extends BaseActivity implements SelectedArticleListener, PageChangeListener{
+public class DetailActivity extends BaseActivity implements SelectedArticleListener, PageChangeListener, FavoriteListener{
+
+	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -75,10 +82,10 @@ public class DetailActivity extends BaseActivity implements SelectedArticleListe
 //		};
 //	}
 
-	@Override
-	public void onListItemClick(List<Article> article) {
-		
-	}
+//	@Override
+//	public void onListItemClick(List<Article> article) {
+//		
+//	}
 
 	@Override
 	public void onSelectedArticle(int pos) {
@@ -99,6 +106,30 @@ public class DetailActivity extends BaseActivity implements SelectedArticleListe
 	public void onPageChange(int position) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void setFavorite(int position) {
+		Article article = ListArticle.getArticle().get(position);
+		Article savedArticle = dataAccess.getByColumnNameValue("TITLE", article.getTitle());
+		if(savedArticle == null){
+			dataAccess.create(article);
+			article.setStatus(true);
+			toastIt("article saved");
+		}else {
+			dataAccess.delete(article);
+			article.setStatus(false);
+//			updateFragment(article);
+			toastIt("article deleted");
+		}
+	}
+
+	private void updateFragment(Article article) {
+		ListArticle.getArticle().remove(article);
+		DetailFragment det = (DetailFragment) rightDrawer;
+		DetailMenuFragment men = (DetailMenuFragment) leftDrawer;
+		det.setNotify();
+		men.setNotify();
 	}
 
 	

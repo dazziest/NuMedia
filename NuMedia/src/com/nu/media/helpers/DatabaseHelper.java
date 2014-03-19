@@ -17,7 +17,7 @@ import com.j256.ormlite.table.TableUtils;
  */
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 	
-	private static final String DATABASE_NAME = "MMSAndroid.db";
+	private static final String DATABASE_NAME = "nu.db";
 	private static final int DATABASE_VERSION = 1;	
 	
 	public DatabaseHelper(Context context) {

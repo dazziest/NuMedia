@@ -5,6 +5,7 @@ import java.util.List;
 import com.nu.media.R;
 import com.nu.media.models.Article;
 import com.nu.media.models.ListArticle;
+import com.nu.media.views.fragments.BaseContentFragment;
 import com.nu.media.views.fragments.MainFragment;
 import com.nu.media.views.fragments.MainMenuFragment;
 import com.nu.media.views.listeners.SelectedArticleListener;
@@ -52,10 +53,10 @@ public class MainActivity extends BaseActivity implements OnMenuClickListener, S
 //		return true;
 //	}
 
-	@Override
-	public void onListItemClick(List<Article> list) {
-		ListArticle.setArticle(list);
-	}
+//	@Override
+//	public void onListItemClick(List<Article> list) {
+//		ListArticle.setArticle(list);
+//	}
 
 	@Override
 	public void onSelectedArticle(int position) {

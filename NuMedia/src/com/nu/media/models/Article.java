@@ -1,14 +1,21 @@
 package com.nu.media.models;
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+@DatabaseTable(tableName = "ARTICLES")
 public class Article extends BaseModel {
-	private int id;
+//	private int id;
+	
+	@DatabaseField(id = true, columnName = "TITLE")
 	private String title;
+	@DatabaseField(columnName = "DESC")
 	private String description;
+	@DatabaseField(columnName = "IMG_URL")
 	private String imageUrl;
 	
-	public void setId(int id){
-		this.id = id;
-	}
+	private boolean isFavorite;
+	
 	public void setTitle(String title){
 		this.title = title;
 	}
@@ -18,10 +25,11 @@ public class Article extends BaseModel {
 	public void setImgUrl(String img){
 		this.imageUrl = img;
 	}
-
-	public int getId(){
-		return id;
+	
+	public void setStatus(boolean status){
+		this.isFavorite = status;
 	}
+
 	public String getDescription(){
 		return description;
 	}
@@ -30,5 +38,8 @@ public class Article extends BaseModel {
 	}
 	public String getImgUrl(){
 		return imageUrl;
+	}
+	public boolean getStatus(){
+		return isFavorite;
 	}
 }

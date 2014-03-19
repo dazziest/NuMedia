@@ -26,6 +26,7 @@
             android:layout_weight="1"
             android:ellipsize="end"
             android:singleLine="true"
+            android:textColor="@color/black"
             android:text="sample title"
             android:textSize="16sp" />
 

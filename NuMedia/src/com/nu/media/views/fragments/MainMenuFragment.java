@@ -21,7 +21,9 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.nu.media.R;
 import com.nu.media.helpers.ActionBarHelper;
+import com.nu.media.models.Article;
 import com.nu.media.models.CustomMenuItem;
+import com.nu.media.models.dao.DataAccess;
 import com.nu.media.views.adapters.CustomMenuItemAdapter;
 import com.nu.media.views.listeners.OnMenuClickListener;
 import com.sherlock.navigationdrawer.compat.SherlockActionBarDrawerToggle;
@@ -88,7 +90,7 @@ public class MainMenuFragment extends BaseContentFragment {
 //				lListener.onClickMainMenu();
 //				mDrawerLayout.closeDrawer(listViewMenu);
 				CustomMenuItem item = (CustomMenuItem) listViewMenu.getItemAtPosition(pos);
-				if(item.getClassName() == MainFragment.class) {
+				if(item.getClassName() != null) {
 					lListener.onSelectFragmentMenu(item.getClassName(), pos);
 				}else {
 					Toast.makeText(getActivity(), "Not yet implemented", Toast.LENGTH_LONG).show();
@@ -249,11 +251,11 @@ public class MainMenuFragment extends BaseContentFragment {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
-	public void initializeData(DrawerLayout layout, ActionBarHelper bar, SherlockActionBarDrawerToggle toggle) {
-		mDrawerLayout = layout;
-		mActionBar = bar;
-		mDrawerToggle = toggle;
+	public void initializeData(DataAccess<Article> data) {
+		// TODO Auto-generated method stub
+		
 	}
+
+	
 }

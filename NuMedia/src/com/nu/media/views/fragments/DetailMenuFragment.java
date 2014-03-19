@@ -57,4 +57,9 @@ public class DetailMenuFragment extends MainFragment {
 			}
 		});
 	}
+	
+	public void setNotify(){
+		CustomArrayAdapter not = (CustomArrayAdapter) list.getAdapter();
+		not.notifyDataSetChanged();
+	}
 }

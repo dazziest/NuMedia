@@ -20,7 +20,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseInitializer extends SQLiteOpenHelper{
 	
     private static String DB_PATH;
-    private static String DB_NAME = "MMSAndroid.db";
+    private static String DB_NAME = "nu.db";
  
     private SQLiteDatabase database; 
     private final Context context;

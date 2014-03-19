@@ -1,12 +1,18 @@
 package com.nu.media.views.activities;
 
+import java.io.File;
+import java.io.IOException;
+
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.androidquery.util.AQUtility;
 import com.nu.media.R;
 import com.nu.media.R.layout;
 import com.nu.media.R.menu;
+import com.nu.media.helpers.DatabaseInitializer;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.app.Activity;
 import android.content.Intent;
@@ -87,18 +93,19 @@ public class SplashScreenActivity extends SherlockFragmentActivity {
 
 		@Override
 		protected String doInBackground(String... params) {
-//			try {
+			try {
 //				initializeStrictMode();
 				//initialize database
-//				DatabaseInitializer initializer = new DatabaseInitializer(SplashScreenActivity.this);
-//				initializer.createDatabase();
-//				initializer.close();
-//			}catch (IOException e) {
-//				e.printStackTrace();
-//			}catch (ClassNotFoundException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
+				DatabaseInitializer initializer = new DatabaseInitializer(SplashScreenActivity.this);
+				initializer.createDatabase();
+				initializer.close();
+			}catch (IOException e) {
+				e.printStackTrace();
+			}
+			//set cache directory to external storage
+			File ext = Environment.getExternalStorageDirectory();
+			File cacheDir = new File(ext, "/Android/data/"+getPackageName()+"/aquery"); 
+			AQUtility.setCacheDir(cacheDir);
 			return "executed";
 		}
 

@@ -1,5 +1,6 @@
 package com.nu.media.helpers;
 
+import android.R;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,10 +11,12 @@ import android.text.Html.ImageGetter;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.ImageView;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.AjaxStatus;
+import com.androidquery.callback.BitmapAjaxCallback;
 
 /**
  * Helper for retrieve image from html content and return it for use with 
@@ -76,7 +79,37 @@ public class AqueryImageParser implements ImageGetter {
     		requestImage(url);
     	}
 		private void requestImage(String url) {
-			AjaxCallback<Bitmap> cb = new AjaxCallback<Bitmap>(){
+			
+//			AjaxCallback<Bitmap> cb = new AjaxCallback<Bitmap>(){
+//				@Override
+//				public void callback(String url, Bitmap bmp, AjaxStatus status) {
+//					if (bmp == null) {
+//						return;
+//					}										
+//					Drawable draw = new BitmapDrawable(bmp);
+//					draw  = scaleImage(draw);
+//					setImageDrawable(draw);
+//				}
+//			};
+//			//set type callback
+//			cb.type(Bitmap.class);
+//			cb.url(url);
+//			//proceed
+//			aq.ajax(cb);
+//			aq.id(R.id.button2).image(url, true, true, 0, 0, new BitmapAjaxCallback(){
+//
+//		        @Override
+//		        public void callback(String url, ImageView iv, Bitmap bm, AjaxStatus status){
+//		        	if (bm == null) {
+//						return;
+//					}										
+//					Drawable draw = new BitmapDrawable(bm);
+//					draw  = scaleImage(draw);
+//					setImageDrawable(draw);		                
+//		        }
+//		        
+//		});
+			aq.ajax(url, Bitmap.class, 0, new AjaxCallback<Bitmap>(){
 				@Override
 				public void callback(String url, Bitmap bmp, AjaxStatus status) {
 					if (bmp == null) {
@@ -86,12 +119,7 @@ public class AqueryImageParser implements ImageGetter {
 					draw  = scaleImage(draw);
 					setImageDrawable(draw);
 				}
-			};
-			//set type callback
-			cb.type(Bitmap.class);
-			cb.url(url);
-			//proceed
-			aq.ajax(cb);
+			});
 		}
 		
 		protected void setImageDrawable(Drawable draw) {

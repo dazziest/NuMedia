@@ -24,6 +24,8 @@ import com.nu.media.helpers.ActionBarHelper;
 import com.nu.media.helpers.NetworkHelper;
 import com.nu.media.models.Article;
 import com.nu.media.models.CustomMenuItem;
+import com.nu.media.models.ListArticle;
+import com.nu.media.models.dao.DataAccess;
 import com.nu.media.views.adapters.CustomArrayAdapter;
 import com.nu.media.views.listeners.SelectedArticleListener;
 import com.nu.media.views.listeners.OnMenuClickListener;
@@ -39,19 +41,22 @@ public class MainFragment extends BaseContentFragment {
 	private String currentDes;
 	private int indexId;
 	private List<CustomMenuItem> menuItem;
-	private ArrayList<Article> listData;
+	protected List<Article> listData;
 	private SelectedArticleListener lListener;
 	private OnMenuClickListener mListener;
 	private boolean isFeedBurner;
+	
+	protected DataAccess<Article> dataAccess;
+	protected View v;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
 		setActionBarTitle("Article");
-		View v = inflater.inflate(R.layout.main_content, container, false);
+		v = inflater.inflate(R.layout.main_content, container, false);
 		aq = new AQuery(getActivity(), v);
-		retrieveData();
 		list=(ListView)v.findViewById(R.id.list);
+		retrieveData();
 		return v;
 	}
 	
@@ -83,7 +88,7 @@ public class MainFragment extends BaseContentFragment {
         currentTitle = null;
         currentImgUrl = null;
         currentDes = null;
-		aq.ajax(url, XmlPullParser.class, new AjaxCallback<XmlPullParser>(){
+		aq.ajax(url, XmlPullParser.class, 0, new AjaxCallback<XmlPullParser>(){
 			
 			@Override
 			public void callback(String url, XmlPullParser xpp, AjaxStatus status) {
@@ -174,7 +179,7 @@ public class MainFragment extends BaseContentFragment {
 			Article art = new Article();
 			art.setDescription("Koneksi mu lemot bro, pake dummy dulu");
 			art.setTitle("Dummy Title "+i);
-			art.setId(i);
+//			art.setId(i);
 			listData.add(art);
 		}
 		hideProgressBar(getView());
@@ -184,7 +189,7 @@ public class MainFragment extends BaseContentFragment {
 
 	private void addArticle() {
 		Article article = new Article();
-		article.setId(indexId);
+//		article.setId(indexId);
 		article.setDescription(currentDes);
 		article.setTitle(currentTitle);
 		article.setImgUrl(currentImgUrl);
@@ -202,29 +207,33 @@ public class MainFragment extends BaseContentFragment {
 	}
 
 	protected void showResult() {
+		syncListData();
+		ListArticle.setArticle(listData);
 		list.setAdapter(new CustomArrayAdapter(getActivity(), R.layout.main_content_item_list, listData)); 
 		list.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long arg3) {
-//				Article article = (Article) list.getSelectedItem();
-				lListener.onListItemClick(listData);
 				lListener.onSelectedArticle(pos);
 			}
 		});
 	}
+	private void syncListData() {
+		for (Article article : listData) {
+			Article saved = dataAccess.getByColumnNameValue("TITLE", article.getTitle());
+			if (saved != null) {
+				article.setStatus(true);
+			}
+		}
+	}
+
 	@Override
 	public void saveData() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void initializeData(DrawerLayout mDrawerLayout,
-			ActionBarHelper mActionBar,
-			SherlockActionBarDrawerToggle mDrawerToggle) {
-		// TODO Auto-generated method stub
-		
+	public void initializeData(DataAccess<Article> data) {
+		this.dataAccess = data;
 	}
-	
 }

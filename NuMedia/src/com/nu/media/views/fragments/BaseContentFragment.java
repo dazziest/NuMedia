@@ -9,7 +9,10 @@ import com.actionbarsherlock.view.MenuItem;
 import com.androidquery.AQuery;
 import com.nu.media.R;
 import com.nu.media.helpers.ActionBarHelper;
+import com.nu.media.helpers.DatabaseHelper;
 import com.nu.media.helpers.NetworkHelper;
+import com.nu.media.models.Article;
+import com.nu.media.models.dao.DataAccess;
 import com.sherlock.navigationdrawer.compat.SherlockActionBarDrawerToggle;
 import android.app.Dialog;
 import android.content.res.Configuration;
@@ -221,7 +224,7 @@ public abstract class BaseContentFragment extends SherlockFragment{
 	
 	public abstract void saveData();
 	
-	public abstract void initializeData(DrawerLayout mDrawerLayout, ActionBarHelper mActionBar, SherlockActionBarDrawerToggle mDrawerToggle); 
+	public abstract void initializeData(DataAccess<Article> data); 
 	
 	/*
 	 * set title

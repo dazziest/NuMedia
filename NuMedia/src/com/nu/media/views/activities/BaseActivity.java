@@ -4,8 +4,12 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.nu.media.R;
 import com.nu.media.helpers.ActionBarHelper;
+import com.nu.media.helpers.DatabaseHelper;
+import com.nu.media.helpers.DatabaseManager;
 import com.nu.media.helpers.NetworkHelper;
 import com.nu.media.helpers.NetworkHelper.WifiListener;
+import com.nu.media.models.Article;
+import com.nu.media.models.dao.DataAccess;
 import com.nu.media.views.fragments.BaseContentFragment;
 import com.nu.media.views.fragments.DetailMenuFragment;
 import com.nu.media.views.listeners.DrawerListener;
@@ -44,12 +48,21 @@ public abstract class BaseActivity extends SherlockFragmentActivity implements W
 	protected FrameLayout rightDrawerLayout;
 	protected FrameLayout leftDrawerLayout;
 	
+	protected DataAccess<Article> dataAccess;
+	protected DatabaseManager<DatabaseHelper> manager;
+	protected DatabaseHelper db;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(getString(R.string.app_name));
 //		overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
 		setContentView(R.layout.fragment_main_layout);
+		
+		manager = new DatabaseManager<DatabaseHelper>();
+		db = manager.getHelper(this);
+		dataAccess = new DataAccess<Article>();
+		dataAccess.setDao(db, Article.class);
 		
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		leftDrawerLayout = (FrameLayout) findViewById(R.id.left_drawer);
@@ -104,6 +117,9 @@ public abstract class BaseActivity extends SherlockFragmentActivity implements W
 		this.getSupportFragmentManager().beginTransaction()
 		.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
 		.replace(target, source).commit();
+		
+		BaseContentFragment frag = (BaseContentFragment) source;
+		frag.initializeData(dataAccess);
 	}
 	
 	@Override

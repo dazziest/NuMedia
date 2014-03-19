@@ -16,6 +16,8 @@
 
 package com.nu.media.views.fragments;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Html;
@@ -64,8 +66,10 @@ public class ViewArticleFragment extends SherlockFragment {
 
 	private ImageView btnFavorite;
 	private boolean isFavorite;
+//	private static List<Article> listArticle;
     
     public static ViewArticleFragment create(int pageNumber) {
+//    	listArticle = listData;
         ViewArticleFragment fragment = new ViewArticleFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, pageNumber);
@@ -97,7 +101,8 @@ public class ViewArticleFragment extends SherlockFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout containing a title and body text.
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_screen_slide_page, container, false);
-        Article article = ListArticle.getArticle().get(mPageNumber);
+        final Article article = ListArticle.getArticle().get(mPageNumber);
+        isFavorite = article.getStatus();
         // Set the title view to show the page number.
         ((TextView) rootView.findViewById(R.id.judul)).setText(article.getTitle());
         btnFavorite = (ImageView) rootView.findViewById(R.id.favorite);
@@ -105,19 +110,20 @@ public class ViewArticleFragment extends SherlockFragment {
 			
 			@Override
 			public void onClick(View v) {
+				fListener.setFavorite(mPageNumber);
+				isFavorite = article.getStatus();
 				setFavorite();
 			}
 		});
+        setFavorite();
         setView(rootView);
         return rootView;
     }
     
     protected void setFavorite() {
-		if (!isFavorite) {
+		if (isFavorite) {
 			btnFavorite.setImageResource(R.drawable.ic_action_important);
-			isFavorite = true;
 		}else {
-			isFavorite = false;
 			btnFavorite.setImageResource(R.drawable.ic_action_not_important);
 		}
 	}
