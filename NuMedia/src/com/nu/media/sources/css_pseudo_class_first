@@ -1,0 +1,15 @@
+<html>
+<head>
+<style>
+	p > i:first-child
+	{
+		color:blue;
+	} 
+</style>
+</head>
+
+<body>
+	<p>I am a <i>strong</i> man. I am a <i>strong</i> man.</p>
+	<p>I am a <i>strong</i> man. I am a <i>strong</i> man.</p>
+</body>
+</html>

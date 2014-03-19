@@ -2,112 +2,17 @@
 
 
 <resources>
-   
-    <string-array name="top_names">
-        <item>Async Network</item>
-        <item>Image Loading</item> 
-        <item>Authentication</item> 
-        <item>Location Callback</item> 
-        <item>XML Parsing</item>
-        <item>AQuery Service</item> 
-        <item>Home @AndroidQuery</item>
-        <item>Javadoc</item>              
-    </string-array>
-    
-    <string-array name="top_values">
-        <item>com.androidquery.test.IntentListActivity:async:updated</item>
-        <item>com.androidquery.test.IntentListActivity:image:updated</item>
-        <item>com.androidquery.test.IntentListActivity:auth</item>
-        <item>com.androidquery.test.IntentListActivity:location:preview</item>
-        <item>com.androidquery.test.IntentListActivity:xml</item>
-        <item>com.androidquery.test.IntentListActivity:service</item>
-        <item>http://code.google.com/p/android-query/</item>
-        <item>http://android-query.googlecode.com/svn/trunk/javadoc/com/androidquery/AbstractAQuery.html</item>       
-    </string-array>
-  
-  	<string-array name="async_names">
-        <item>JSON</item>
-        <item>HTML/XML String</item>   
-        <item>byte[]</item>  
-        <item>XML Dom</item>  
-        <item>File</item>  
-        <item>File (Download)</item> 
-        <item>Web View (URL Cached)</item>
-        <item>InputStream</item> 
-        <item>XML Pull Parser</item>  
-        <item>JSON (Array)</item>
-        <item>Custom Type (ex. Gson)</item>
-        <item>Http POST</item> 
-        <item>Http POST (Multipart)</item> 
-        <item>Http POST (Custom Entity)</item> 
-        <item>Http DELETE</item>
-        <item>Http PUT</item>
-        <item>Activity Method as Callback</item> 
-        <item>Caching</item> 
-        <item>Progress</item>
-        <item>Progress Dialog</item> 
-        <item>Progress Dialog Bar</item> 
-        <item>Progress Activity</item> 
-        <item>Progress Activity Bar</item> 
-        <item>AjaxCallback</item>   
-        <item>Request Headers</item>  
-        <item>Cookies</item>  
-        <item>Encoding</item> 
-        <item>AjaxStatus</item>  
-        <item>Response Cookies</item>  
-        <item>Response Headers</item>  
-        <item>Error Handling</item> 
-        <item>Invalidate</item> 
-        <item>Doc @ AndroidQuery</item>      
-    </string-array>
-  
-  	<string-array name="async_values">
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_json</item>
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_html</item>   
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_bytes</item>
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_xml</item>
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_file</item>
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_file_custom</item>
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_web:beta</item>
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_inputstream</item>
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_xpp</item>
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_json_array</item>
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_transformer</item>
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_post</item> 
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_multipart</item> 
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_post_entity</item> 
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_delete:new</item> 
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_put:new</item> 
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_method_cb</item>
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_cached</item> 
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_progress</item> 
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_progress_dialog</item> 
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_progress_dialogbar:beta</item> 
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_progress_activity</item> 
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_progress_activity_bar:beta</item> 
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_advance</item>  
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_header</item>  
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_cookie</item>
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_encoding</item>  
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_status</item>  
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_rcookies</item>
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_rheaders</item>
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_error</item>  
-        <item>com.androidquery.test.async.AjaxLoadingActivity:async_invalidate</item>  
-        <item>http://code.google.com/p/android-query/wiki/AsyncAPI</item>    
-    </string-array>
-    
     <string-array name="image_names">
         
-        <item>Performance Stress Test</item>
+        <item>HTML Intro</item>        
+        <item>HTML Headings</item>
+        <item>HTML Links</item>   
+        <item>HTML Paragraph</item>          
+        <item>HTML Dropdown</item> 
         
-        <item>Simple</item>
-        <item>Cache Control</item>   
-        <item>Down Sampling</item>   
-        <item>Fallback</item>
+        <item>CSS Align</item>        
+        <item>CSS Pseudo Class</item>
         
-        <item>Preload</item>
-        <item>Progress</item>
         <item>Progress Bar</item>
         <item>Progress Dialog Bar</item>
         <item>Animation (Default Fade In)</item>
@@ -163,112 +68,76 @@
     
     <string-array name="image_values">
         
-        <item>com.androidquery.test.image.ImageLoadingPageGridActivity:image_page_grid:beta</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:html_intro:beta</item>        
+        <item>com.nu.media.views.activities.ExamplesActivity:html_headings</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:html_links</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:html_paragraph</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:html_dropdown</item>
         
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_simple</item>
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_cache</item>
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_down</item>
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_fallback</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:css_align</item>        
+        <item>com.nu.media.views.activities.ExamplesActivity:css_pseudo_class_first</item>
         
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_preload</item>
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_progress</item>
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_progress_bar:beta</item>
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_progress_dialogbar:beta</item>
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_animation</item>
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_animation2</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:image_progress_bar:beta</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:image_progress_dialogbar:beta</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:image_animation</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:image_animation2</item>
         
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_ratio</item>
-        <item>com.androidquery.test.image.ImageLoadingAspectRatioActivity:image_ratio_fixed</item>
-        <item>com.androidquery.test.image.ImageLoadingAspectRatioActivity:image_ratio_anchor:new</item>
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_round:new</item>
-        <item>com.androidquery.test.image.ImageZoomActivity:image_zoom</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:image_ratio</item>
+        <item>com.nu.media.views.activities.ImageLoadingAspectRatioActivity:image_ratio_fixed</item>
+        <item>com.nu.media.views.activities.ImageLoadingAspectRatioActivity:image_ratio_anchor:new</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:image_round:new</item>
+        <item>com.nu.media.views.activities.ImageZoomActivity:image_zoom</item>
         
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_auto_rotate:new</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:image_auto_rotate:new</item>
         
-        <item>com.androidquery.test.image.ImageLoadingListActivity:image_list</item>
-        <item>com.androidquery.test.image.ImageLoadingList2Activity:image_list2</item>
-        <item>com.androidquery.test.image.ImageLoadingList3Activity:image_list3</item>
-        <item>com.androidquery.test.image.ImageLoadingList4Activity:image_list4</item>
-        <item>com.androidquery.test.image.ImageLoadingListOptionsActivity:image_options</item>
+        <item>com.nu.media.views.activities.ImageLoadingListActivity:image_list</item>
+        <item>com.nu.media.views.activities.ImageLoadingList2Activity:image_list2</item>
+        <item>com.nu.media.views.activities.ImageLoadingList3Activity:image_list3</item>
+        <item>com.nu.media.views.activities.ImageLoadingList4Activity:image_list4</item>
+        <item>com.nu.media.views.activities.ImageLoadingListOptionsActivity:image_options</item>
         
-        <item>com.androidquery.test.image.ImageLoadingGridActivity:image_grid</item>
-        <item>com.androidquery.test.image.ImageLoadingGalleryActivity:image_gallery</item>
-        <item>com.androidquery.test.image.ImageLoadingExpandableListActivity:image_elist</item>
+        <item>com.nu.media.views.activities.ImageLoadingGridActivity:image_grid</item>
+        <item>com.nu.media.views.activities.ImageLoadingGalleryActivity:image_gallery</item>
+        <item>com.nu.media.views.activities.ImageLoadingExpandableListActivity:image_elist</item>
         
         
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_chart</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:image_chart</item>
         
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_custom</item>
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_file</item>
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_file_custom</item>
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_dup</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:image_custom</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:image_file</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:image_file_custom</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:image_dup</item>
         
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_advance</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:image_advance</item>
           
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_access_file</item> 
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_access_memory</item>  
+        <item>com.nu.media.views.activities.ExamplesActivity:image_access_file</item> 
+        <item>com.nu.media.views.activities.ExamplesActivity:image_access_memory</item>  
         
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_pre_cache</item>
+        <item>com.nu.media.views.activities.ExamplesActivity:image_pre_cache</item>
         
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_nocache</item> 
+        <item>com.nu.media.views.activities.ExamplesActivity:image_nocache</item> 
         
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_clear_mem</item> 
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_clear_disk</item>    
+        <item>com.nu.media.views.activities.ExamplesActivity:image_clear_mem</item> 
+        <item>com.nu.media.views.activities.ExamplesActivity:image_clear_disk</item>    
         
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_cache_dir</item>   
+        <item>com.nu.media.views.activities.ExamplesActivity:image_cache_dir</item>   
         
-        <item>com.androidquery.test.image.ImageLoadingActivity:image_send</item>   
+        <item>com.nu.media.views.activities.ExamplesActivity:image_send</item>   
         
         <item>http://code.google.com/p/android-query/wiki/ImageLoading</item>
     </string-array>
-    
-  	<string-array name="auth_names">
-  		<item>Facebook</item>  
-  		<item>Facebook (Single Sign On)</item>
-  		      
-  		<item>Twitter</item>
-  		<item>Twitter (Token Only)</item>
-  		<item>Twitter (Photo Status)</item>
-  		
-  		<item>Basic</item>
-  		
-        <item>Google Reader (Pick Account)</item>  
-        <item>Google Reader (Active Account)</item>  
-        <item>Google Reader (Specific Account)</item>    
-        <item>Picasa</item> 
-        <item>YouTube</item> 
-        <item>Contacts</item>    
-        <item>Parallel Requests</item>  
-        <item>Unauth</item>   
-    </string-array>
-  
-  	<string-array name="auth_values">
-  		<item>com.androidquery.test.async.AjaxAuthActivity:auth_facebook</item>
-  		<item>com.androidquery.test.async.AjaxAuthActivity:auth_facebook_sso</item> 
-  		 
-  		<item>com.androidquery.test.async.AjaxAuthActivity:auth_twitter</item>
-  		<item>com.androidquery.test.async.AjaxAuthActivity:auth_twitter_token</item> 
-  		<item>com.androidquery.test.async.AjaxAuthActivity:auth_twitter_upload:new</item> 
-  		<item>com.androidquery.test.async.AjaxAuthActivity:auth_basic</item>
-  		
-        <item>com.androidquery.test.async.AjaxAuthActivity:auth_pick_account</item>  
-        <item>com.androidquery.test.async.AjaxAuthActivity:auth_last_account</item>  
-        <item>com.androidquery.test.async.AjaxAuthActivity:auth_specific_account</item>
-        <item>com.androidquery.test.async.AjaxAuthActivity:auth_picasa</item>
-        <item>com.androidquery.test.async.AjaxAuthActivity:auth_youtube</item>
-        <item>com.androidquery.test.async.AjaxAuthActivity:auth_contacts</item>
-        <item>com.androidquery.test.async.AjaxAuthActivity:auth_parallel</item>
-        <item>com.androidquery.test.async.AjaxAuthActivity:auth_unauth</item>
-    </string-array>    
-    
+      
     <string-array name="source_keys">
         
-        <item>async_json</item>
-        <item>async_html</item>   
-        <item>async_bytes</item>  
-        <item>async_xml</item>
-        <item>async_file</item>
-        <item>async_file_custom</item>
+        <item>html_intro</item>
+        <item>html_headings</item>   
+        <item>html_links</item>  
+        <item>html_paragraph</item>
+        <item>html_dropdown</item>
+        
+        <item>css_align</item>
+        <item>css_pseudo_class_first</item>
+        
         <item>async_web</item>
         <item>async_inputstream</item>
         <item>async_xpp</item>
@@ -378,12 +247,15 @@
     </string-array>
     
     <string-array name="source_title">
-        <item>Asynchronous HTTP Get JSON Object</item>
-        <item>Asynchronous HTTP Get HTML/XML</item>   
-        <item>Asynchronous HTTP Get as Bytes Array</item>
-        <item>Asynchronous HTTP Get XML Dom</item>   
-        <item>Asynchronous HTTP Get File Download</item>   
-        <item>Asynchronous HTTP Get File Path Download</item>  
+        <item>Introduction to HTML</item>
+        <item>HTML Headings</item>   
+        <item>HTML Links</item>
+        <item>HTML Paragraph</item>
+        <item>HTML Dropdown</item>
+        
+        <item>Left and Right Aligning Using the float Property</item> 
+        <item>Match the first &lt;i&gt; element in all &lt;p&gt; elements</item> 
+         
         <item>Asynchronous Load Html with WebView Caching</item>   
         <item>Asynchronous HTTP Get Input Stream</item>   
         <item>Asynchronous HTTP Get XML Pull Parser</item>   

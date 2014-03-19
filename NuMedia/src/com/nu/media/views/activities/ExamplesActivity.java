@@ -4,8 +4,11 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.widget.Toast;
 
 import com.androidquery.AQuery;
 import com.androidquery.util.AQUtility;
@@ -16,6 +19,7 @@ public class ExamplesActivity extends FragmentActivity {
 	private AQuery aq;
 	private String type;
 	private static Map<String, String> titleMap;
+	private String htmlString;
 	
 	protected int getContainer(){
 		return R.layout.source_activity;
@@ -37,27 +41,25 @@ public class ExamplesActivity extends FragmentActivity {
 		
 		aq.id(R.id.name).text(title);
 		aq.id(R.id.code).text(source);
-		aq.id(R.id.go_run).clicked(this, "runSource");
-		
-		if("image_access_file".equals(type) || "image_access_memory".equals(type)){
-//			image_simple();
-		}else if("image_file".equals(type) || "image_file_custom".equals(type)){
-			aq.cache("http://farm6.static.flickr.com/5035/5802797131_a729dac808_b.jpg", 0);
-		}else if("image_preload".equals(type)){
-			String small = "http://farm6.static.flickr.com/5035/5802797131_a729dac808_s.jpg";		
-			aq.cache(small, 0);
-			aq.id(R.id.image).width(250).height(250).image(0).visible();
-		}else if("image_ratio".equals(type)){
-			aq.id(R.id.image).width(250);
-		}else if("image_pre_cache".equals(type)){
-//			pre_cache();
-		}else if("image_button".equals(type)){
-			aq.id(R.id.button).visible();
-			aq.id(R.id.go_run).gone();
-//			image_button();
-		}else if("image_send".equals(type)){
-			aq.cache("http://www.androidquery.com/z/images/vikispot/android-w.png", 0);
-		}
+		aq.id(R.id.go_run).clicked(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if (htmlString != null) {
+					loadHtml();
+				}else {
+					(Toast.makeText(ExamplesActivity.this, "Error load source", Toast.LENGTH_LONG)).show();
+				}
+			}
+
+			private void loadHtml() {
+				Intent intent = new Intent(ExamplesActivity.this, WebViewActivity.class);
+				intent.putExtra("web_source", htmlString);
+				startActivity(intent);
+			}
+		});
+
+		overridePendingTransition(R.anim.activity_open_translate,R.anim.activity_close_scale);
 	}
 	
 	private String getSource(){
@@ -67,7 +69,7 @@ public class ExamplesActivity extends FragmentActivity {
 		try{
 			String name = getIntent().getStringExtra("type");
 		
-			InputStream is = getClassLoader().getResourceAsStream("com/androidquery/test/source/" + name);
+			InputStream is = getClassLoader().getResourceAsStream("com/nu/media/sources/" + name);
 		
 			if(is != null){
 				source = new String(AQUtility.toBytes(is));
@@ -79,7 +81,12 @@ public class ExamplesActivity extends FragmentActivity {
 			//e.printStackTrace();
 		}
 		
+		this.htmlString = source;		
 		return source;
+		
+	}
+	
+	private void runSource(){
 		
 	}
 	
