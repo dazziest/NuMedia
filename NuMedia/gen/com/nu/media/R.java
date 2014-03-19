@@ -1025,6 +1025,7 @@ containing a value of this type.
         public static final int menu_icon=0x7f050046;
         public static final int menu_progressbar=0x7f050068;
         public static final int menu_refresh=0x7f050067;
+        public static final int menu_reset=0x7f050069;
         public static final int menu_text=0x7f050047;
         public static final int name=0x7f050045;
         public static final int nav_shadow=0x7f050042;
@@ -1110,6 +1111,7 @@ containing a value of this type.
     }
     public static final class menu {
         public static final int refresh=0x7f0d0000;
+        public static final int reset=0x7f0d0001;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 

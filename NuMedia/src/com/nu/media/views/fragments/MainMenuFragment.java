@@ -73,8 +73,8 @@ public class MainMenuFragment extends BaseContentFragment {
 	protected ListAdapter getListDrawerAdapter() {
 		ArrayList<CustomMenuItem> menuItem = new ArrayList<CustomMenuItem>();
 		menuItem.add(new CustomMenuItem("Article", MainFragment.class, R.drawable.ic_action_view_as_list));
-		menuItem.add(new CustomMenuItem("Exercise", ExerciseFragment.class, R.drawable.ic_action_view_as_list));
 		menuItem.add(new CustomMenuItem("Favorite", MainFavoriteFragment.class, R.drawable.ic_action_important));
+		menuItem.add(new CustomMenuItem("Exercise", ExerciseFragment.class, R.drawable.ic_action_view_as_list));
 		menuItem.add(new CustomMenuItem("Quiz", MainQuizFragment.class, R.drawable.ic_action_edit));
 		return new CustomMenuItemAdapter(getActivity(), R.layout.list_menu_items, R.id.menu_text, menuItem);
 	}

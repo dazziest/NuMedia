@@ -7,7 +7,12 @@ import java.util.Map;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.androidquery.AQuery;
@@ -20,6 +25,7 @@ public class ExamplesActivity extends FragmentActivity {
 	private String type;
 	private static Map<String, String> titleMap;
 	private String htmlString;
+	private EditText edtCode;
 	
 	protected int getContainer(){
 		return R.layout.source_activity;
@@ -40,7 +46,9 @@ public class ExamplesActivity extends FragmentActivity {
 		String title = getSourceTitle();
 		
 		aq.id(R.id.name).text(title);
-		aq.id(R.id.code).text(source);
+		edtCode = aq.id(R.id.code).getEditText();
+		edtCode.setText(source);
+		htmlString = edtCode.getText().toString();
 		aq.id(R.id.go_run).clicked(new View.OnClickListener() {
 			
 			@Override
@@ -58,7 +66,7 @@ public class ExamplesActivity extends FragmentActivity {
 				startActivity(intent);
 			}
 		});
-
+		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 		overridePendingTransition(R.anim.activity_open_translate,R.anim.activity_close_scale);
 	}
 	
@@ -80,14 +88,14 @@ public class ExamplesActivity extends FragmentActivity {
 		}catch(Exception e){
 			//e.printStackTrace();
 		}
-		
-		this.htmlString = source;		
+				
 		return source;
 		
 	}
 	
-	private void runSource(){
-		
+	private void resetSource(){
+		this.htmlString = getSource();
+		aq.id(R.id.code).getEditText().setText(htmlString);
 	}
 	
 	private String getSourceTitle(){
@@ -113,5 +121,29 @@ public class ExamplesActivity extends FragmentActivity {
 		}
 		
 		return result;
+	}
+	
+	/***
+	 * create action bar menu on top from menu layout
+	 */
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.reset, menu);		
+		return true;
+	}
+	
+	/***
+	 * Called when button in action bar is clicked
+	 */
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_reset: {
+			this.resetSource();
+			return true;
+		}default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 }
