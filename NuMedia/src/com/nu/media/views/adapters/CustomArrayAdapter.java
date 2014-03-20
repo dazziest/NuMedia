@@ -2,10 +2,6 @@ package com.nu.media.views.adapters;
 
 import java.util.List;
 
-import com.androidquery.AQuery;
-import com.nu.media.R;
-import com.nu.media.models.Article;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.text.Html;
@@ -13,8 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.androidquery.AQuery;
+import com.nu.media.R;
+import com.nu.media.models.Article;
 
 public class CustomArrayAdapter extends ArrayAdapter<Article> {
 
@@ -43,7 +42,7 @@ public class CustomArrayAdapter extends ArrayAdapter<Article> {
 		Article article = listMenuItems.get(position);
 		TextView text=(TextView)convertView.findViewById(R.id.textTitle);
 	    TextView textDesc=(TextView)convertView.findViewById(R.id.textDesc);
-	    ImageView image=(ImageView)convertView.findViewById(R.id.image);
+//	    ImageView image=(ImageView)convertView.findViewById(R.id.image);
 	    text.setText(article.getTitle());
 	    textDesc.setText(Html.fromHtml(article.getDescription()).toString());
 	    Bitmap placeholder = aq.getCachedImage(R.drawable.ic_action_refresh);

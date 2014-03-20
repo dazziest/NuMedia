@@ -16,7 +16,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.text.Html.ImageGetter;
-import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -112,7 +111,7 @@ public class URLImageParser implements ImageGetter {
         	Display d  = win.getDefaultDisplay(); 
         	d = win.getDefaultDisplay(); 
         	int width = d.getWidth()-25; // Width of the actual device 
-        	int height = d.getHeight(); // height of the actual device 
+//        	int height = d.getHeight(); // height of the actual device 
 
         	Bitmap b = ((BitmapDrawable)image).getBitmap();
         	int h = image.getIntrinsicHeight();

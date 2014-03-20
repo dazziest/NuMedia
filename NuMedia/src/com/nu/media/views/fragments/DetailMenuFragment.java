@@ -10,11 +10,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.nu.media.R;
-import com.nu.media.models.Article;
 import com.nu.media.models.ListArticle;
 import com.nu.media.views.adapters.CustomArrayAdapter;
 import com.nu.media.views.listeners.SelectedArticleListener;
-import com.nu.media.views.listeners.OnMenuClickListener;
 
 public class DetailMenuFragment extends MainFragment {
 	

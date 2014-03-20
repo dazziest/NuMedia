@@ -34,7 +34,7 @@ public class CustomMenuItemAdapter extends ArrayAdapter<CustomMenuItem> {
 		
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		CustomMenuItem menu = listMenuItems.get(position);
-		CustomMenuItem menuItem = listMenuItems.get(position);
+//		CustomMenuItem menuItem = listMenuItems.get(position);
 		convertView = inflater.inflate(R.layout.list_menu_items, parent, false);
 		TextView txt = (TextView)convertView.findViewById(R.id.menu_text);
 		ImageView img = (ImageView)convertView.findViewById(R.id.menu_icon);

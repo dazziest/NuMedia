@@ -1,24 +1,17 @@
 package com.nu.media.views.fragments;
 
 import com.nu.media.R;
-import com.nu.media.helpers.ActionBarHelper;
 import com.nu.media.models.Article;
 import com.nu.media.models.ListArticle;
 import com.nu.media.models.dao.DataAccess;
 import com.nu.media.views.adapters.ArticlesPagerAdapter;
-import com.sherlock.navigationdrawer.compat.SherlockActionBarDrawerToggle;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.SimpleOnPageChangeListener;
-import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 public class DetailFragment extends BaseContentFragment {
 

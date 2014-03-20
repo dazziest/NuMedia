@@ -16,8 +16,6 @@
 
 package com.nu.media.views.fragments;
 
-import java.util.List;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Html;

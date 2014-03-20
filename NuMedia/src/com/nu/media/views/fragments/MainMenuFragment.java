@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -20,13 +18,11 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.nu.media.R;
-import com.nu.media.helpers.ActionBarHelper;
 import com.nu.media.models.Article;
 import com.nu.media.models.CustomMenuItem;
 import com.nu.media.models.dao.DataAccess;
 import com.nu.media.views.adapters.CustomMenuItemAdapter;
 import com.nu.media.views.listeners.OnMenuClickListener;
-import com.sherlock.navigationdrawer.compat.SherlockActionBarDrawerToggle;
 
 public class MainMenuFragment extends BaseContentFragment {
 

@@ -2,14 +2,12 @@ package com.nu.media.views.fragments;
 
 import java.text.DateFormatSymbols;
 import com.actionbarsherlock.app.SherlockFragment;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.androidquery.AQuery;
 import com.nu.media.R;
 import com.nu.media.helpers.ActionBarHelper;
-import com.nu.media.helpers.DatabaseHelper;
 import com.nu.media.helpers.NetworkHelper;
 import com.nu.media.models.Article;
 import com.nu.media.models.dao.DataAccess;
@@ -17,20 +15,13 @@ import com.sherlock.navigationdrawer.compat.SherlockActionBarDrawerToggle;
 import android.app.Dialog;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 

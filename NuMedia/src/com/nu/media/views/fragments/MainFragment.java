@@ -6,13 +6,11 @@ import org.xmlpull.v1.XmlPullParser;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ListView;
 
 import com.androidquery.AQuery;
@@ -20,16 +18,12 @@ import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.AjaxStatus;
 import com.androidquery.util.AQUtility;
 import com.nu.media.R;
-import com.nu.media.helpers.ActionBarHelper;
 import com.nu.media.helpers.NetworkHelper;
 import com.nu.media.models.Article;
-import com.nu.media.models.CustomMenuItem;
 import com.nu.media.models.ListArticle;
 import com.nu.media.models.dao.DataAccess;
 import com.nu.media.views.adapters.CustomArrayAdapter;
 import com.nu.media.views.listeners.SelectedArticleListener;
-import com.nu.media.views.listeners.OnMenuClickListener;
-import com.sherlock.navigationdrawer.compat.SherlockActionBarDrawerToggle;
 
 public class MainFragment extends BaseContentFragment {
 
@@ -39,11 +33,8 @@ public class MainFragment extends BaseContentFragment {
 	private String currentImgUrl;
 	private String currentTitle;
 	private String currentDes;
-	private int indexId;
-	private List<CustomMenuItem> menuItem;
 	protected List<Article> listData;
 	private SelectedArticleListener lListener;
-	private OnMenuClickListener mListener;
 	private boolean isFeedBurner;
 	
 	protected DataAccess<Article> dataAccess;
@@ -83,7 +74,6 @@ public class MainFragment extends BaseContentFragment {
 			toastIt("Invalid Blog URL");
 			return;
 		}
-		indexId = 0;
 		listData = new ArrayList<Article>();
         currentTitle = null;
         currentImgUrl = null;
@@ -197,7 +187,6 @@ public class MainFragment extends BaseContentFragment {
 	}
 
 	private void getAttributes(XmlPullParser xpp) {
-		indexId++;
 		int count = xpp.getAttributeCount();
 		for (int i = 0; i <count ; i++) {
 			if ("url".equals(xpp.getAttributeName(i))) {

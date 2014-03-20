@@ -19,15 +19,12 @@ public final class R {
     public static final class array {
         public static final int image_names=0x7f0c0000;
         public static final int image_values=0x7f0c0001;
-        public static final int locales=0x7f0c000a;
-        public static final int location_names=0x7f0c0006;
-        public static final int location_values=0x7f0c0007;
-        public static final int service_names=0x7f0c0008;
-        public static final int service_values=0x7f0c0009;
+        /**  JS 
+         */
         public static final int source_keys=0x7f0c0002;
+        /**  JS 
+         */
         public static final int source_title=0x7f0c0003;
-        public static final int xml_names=0x7f0c0004;
-        public static final int xml_values=0x7f0c0005;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 

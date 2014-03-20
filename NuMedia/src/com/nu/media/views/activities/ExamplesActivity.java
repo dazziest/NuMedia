@@ -23,7 +23,7 @@ public class ExamplesActivity extends FragmentActivity {
 
 	private AQuery aq;
 	private String type;
-	private static Map<String, String> titleMap;
+//	private Map<String, String> titleMap;
 	private String htmlString;
 	private EditText edtCode;
 	
@@ -44,6 +44,8 @@ public class ExamplesActivity extends FragmentActivity {
 		String source = getSource();
 		
 		String title = getSourceTitle();
+		
+		setTitle(getFragmentTitle());
 		
 		aq.id(R.id.name).text(title);
 		edtCode = aq.id(R.id.code).getEditText();
@@ -102,18 +104,23 @@ public class ExamplesActivity extends FragmentActivity {
 	private String getSourceTitle(){
 		
 		String name = getIntent().getStringExtra("type");
-		
-		if(titleMap == null){
-			titleMap = loadMap();
-		}
+		Map<String, String> titleMap = loadMap(R.array.source_keys, R.array.source_title);
 		
 		return titleMap.get(name);
 	}
 	
-	private Map<String, String> loadMap(){
+	private String getFragmentTitle(){
 		
-		String[] names = getResources().getStringArray(R.array.source_keys);
-		String[] code = getResources().getStringArray(R.array.source_title);
+		String name = getIntent().getStringExtra("type");
+		Map<String, String> titleMap = loadMap(R.array.source_keys, R.array.image_names);
+		
+		return titleMap.get(name);
+	}
+	
+	private Map<String, String> loadMap(int key, int value){
+		
+		String[] names = getResources().getStringArray(key);
+		String[] code = getResources().getStringArray(value);
 		
 		Map<String, String> result = new HashMap<String, String>();
 		

@@ -6,15 +6,8 @@ int anim slide_down 0x7f040004
 int anim slide_up 0x7f040005
 int array image_names 0x7f0c0000
 int array image_values 0x7f0c0001
-int array locales 0x7f0c000a
-int array location_names 0x7f0c0006
-int array location_values 0x7f0c0007
-int array service_names 0x7f0c0008
-int array service_values 0x7f0c0009
 int array source_keys 0x7f0c0002
 int array source_title 0x7f0c0003
-int array xml_names 0x7f0c0004
-int array xml_values 0x7f0c0005
 int attr actionBarDivider 0x7f01000e
 int attr actionBarItemBackground 0x7f01000f
 int attr actionBarSize 0x7f01000d

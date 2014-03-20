@@ -1,13 +1,9 @@
 package com.nu.media.views.fragments;
 
-import java.util.List;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.nu.media.models.Article;
 
 public class MainFavoriteFragment extends MainFragment {
 	
