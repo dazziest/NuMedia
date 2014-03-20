@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://pixelpushstudio.com/gdi/jquizzy.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>jQuizzy - Premium Quiz Engine</title>
+<link rel="stylesheet" href="jQuizzy_files/styles.css">
+    <script src="./jQuizzy_files/init.js"></script>
+	 <script src="./jQuizzy_files/jquery.js"></script>
+	 <script src="./jQuizzy_files/jquery.jquizzy.js"></script>
+</head>
+
+<body>
+
+<div id="quiz-container" class="main-quiz-holder"></div>
+
+
+	 
+	 <script>
+ 
+
+ $('#quiz-container').jquizzy({
+			questions: init.questions, 
+			resultComments: init.resultComments,
+			twitterStatus: 'Woo! I got {score} on the quiz.'
+		});
+		
+		
+ </script>
+
+</body></html>
