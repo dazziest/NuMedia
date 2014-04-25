@@ -16,9 +16,6 @@
 
 package com.nu.media.views.fragments;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.List;
 
 import org.htmlcleaner.HtmlCleaner;
@@ -27,8 +24,6 @@ import org.htmlcleaner.TagNode;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -39,8 +34,6 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -68,7 +61,7 @@ import com.nu.media.models.ListArticle;
  * ScreenSlideActivity} samples.</p>
  */
 @SuppressLint("NewApi")
-public class ViewArticleFragment extends SherlockFragment {
+public class CopyOfViewArticleFragment extends SherlockFragment {
     /**
      * The argument key for the page number this fragment represents.
      */
@@ -92,17 +85,20 @@ public class ViewArticleFragment extends SherlockFragment {
 	private LinearLayout lineLayout;
 
 	private Context mContext;
+
+	public static final int TEXT_SIZE = 17;
+//	private static List<Article> listArticle;
     
-    public static ViewArticleFragment create(int pageNumber) {
+    public static CopyOfViewArticleFragment create(int pageNumber) {
 //    	listArticle = listData;
-        ViewArticleFragment fragment = new ViewArticleFragment();
+        CopyOfViewArticleFragment fragment = new CopyOfViewArticleFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, pageNumber);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public ViewArticleFragment() {
+    public CopyOfViewArticleFragment() {
     }
 
     @Override
@@ -169,42 +165,33 @@ public class ViewArticleFragment extends SherlockFragment {
 			// TODO: handle exception
 		}
 		if (node != null) {
-			List<PageContent> list = api2.getPageList(node);
-			for (PageContent page : list) {
-				setPage(page);
-			}
-//			pageContent = api2.getPage(node, 1);
+			pageContent = api2.getPage(node, 1);
+		}
+		if(pageContent!=null){
+			List<HtmlCleanAPI.HtmlContent> hcList = pageContent.getContentList();
+			setAllComponent(hcList);
 		}
 //    	textContent.setText(htmlSpan);
 //    	textContent.setMovementMethod(LinkMovementMethod.getInstance());
 	}
 	
-	private void setPage(PageContent page) {
-		List<HtmlCleanAPI.HtmlContent> hcList = page.getContentList();
-		setAllComponent(hcList);
-	}
-
-	public static final int TEXT_SIZE = 17;
+	@SuppressLint("NewApi")
 	public void setAllComponent(List<HtmlCleanAPI.HtmlContent> hcList){
 		for(HtmlCleanAPI.HtmlContent hc: hcList){
 			String tag = hc.getTag();
 			String content =  hc.getContent();
-			if(StringUtil.isEmpty(content)) continue;
-			
-			String contentMBlank = StringUtil.mergeBlank(content);
-			if(StringUtil.isEmpty(contentMBlank)) continue;
-			
-			String contentRBlank = StringUtil.rmvEnter(StringUtil.trim(contentMBlank));
-			if(StringUtil.isEmpty(contentRBlank)) continue;
-			
+			String contentRBlank = StringUtil.rmvEnter(StringUtil.trim(StringUtil.mergeBlank(content)));
 			String contentRSpecial = StringUtil.rmvSpecial(contentRBlank);
-			if(StringUtil.isEmpty(contentRSpecial)) continue;
+			
+			if(StringUtil.isEmpty(content) || StringUtil.isEmpty(contentRBlank) || StringUtil.isEmpty(contentRSpecial) ){
+				 continue;
+			}
 			
 			if(tag.equalsIgnoreCase("P")){ 
-				final TextView tagPTV = new TextView(mContext);
+				final TextView tagPTV = new TextView(getActivity().getApplicationContext());
 //				tagPTV.setBackgroundResource(R.drawable.tag_p_drawable);
 				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
-				lp.setMargins(2, 3, 2, 3); 
+				lp.setMargins(2, 2, 2, 2); 
 				tagPTV.setLayoutParams(lp);
 				tagPTV.setPadding(3, 3, 3, 3);
 				tagPTV.setPaddingRelative(3, 3, 3, 3);
@@ -296,46 +283,30 @@ public class ViewArticleFragment extends SherlockFragment {
 //				});					
 				lineLayout.addView(tagLigTV);
 			}else if(tag.equalsIgnoreCase("img")){
-//				final TextView imgTV = new TextView(mContext);
+				final TextView imgTV = new TextView(mContext);
 //				imgTV.setBackgroundResource(R.drawable.tag_p_drawable);
-//				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
-//				lp.setMargins(2, 2, 2, 2); 
-//				imgTV.setLayoutParams(lp);
-//				imgTV.setPaddingRelative(2, 2, 2, 2);
-//				imgTV.setMovementMethod(ScrollingMovementMethod.getInstance()) ;
-//				imgTV.setTextColor(Color.BLACK);
-//				Spanned data = Html.fromHtml(content);
-//				imgTV.setText(data);
-//				imgTV.setTextSize(TEXT_SIZE);
-//				lineLayout.addView(imgTV);
-				
-				ImageView imageView = new ImageView(mContext);
-				LinearLayout.LayoutParams imgLP = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
-				imageView.setLayoutParams(imgLP);
-				aq.id(imageView).image(content);
-//				Bitmap localBt = getLoacalBitmap(baseFolder + File.separator +  content);
-//				imageView.setImageBitmap(localBt);
-				lineLayout.addView(imageView);
+				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+				lp.setMargins(2, 2, 2, 2); 
+				imgTV.setLayoutParams(lp);
+				imgTV.setPaddingRelative(2, 2, 2, 2);
+				imgTV.setMovementMethod(ScrollingMovementMethod.getInstance()) ;
+				imgTV.setTextColor(Color.BLACK);
+		    	AqueryImageParser p = new AqueryImageParser(imgTV, getActivity(), R.drawable.ic_action_refresh);
+		    	Spanned htmlSpan = Html.fromHtml(content, p, null);
+				imgTV.setText(htmlSpan);
+				imgTV.setTextSize(TEXT_SIZE);
+//				imgTV.setOnClickListener(new View.OnClickListener() {
+//					@Override
+//					public void onClick(View v) {
+//						TextView tv = (TextView)v;
+//						String path = tv.getText().toString();
+//						if(path!=null && path.trim().length()>0){
+//							openDialog2(path);
+//						}
+//					}
+//				});					
+				lineLayout.addView(imgTV);
 			}
-		}
-	}
-	
-//	public void openDialog(String content){
-//		CustomDialog cusDialog = new CustomDialog(activity,R.style.custom_dialog_style,content);
-//		Window wd = cusDialog.getWindow();
-//		WindowManager.LayoutParams lp = wd.getAttributes();
-//		lp.alpha = 1.0f;
-//		wd.setAttributes(lp);
-//		cusDialog.show();
-//	}
-	
-	public Bitmap getLoacalBitmap(String localUrl) {
-		try {
-			FileInputStream fis = new FileInputStream(localUrl);
-			return BitmapFactory.decodeStream(fis);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			return null;
 		}
 	}
 
